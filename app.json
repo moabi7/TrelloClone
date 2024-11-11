@@ -2,6 +2,7 @@
   "expo": {
     "name": "TrelloClone",
     "slug": "TrelloClone",
+    "scheme": "trello-lone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,10 +19,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.moabi7.TrelloClone"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "3fcb9d54-361b-4746-bcb0-31a4ded470c1"
+      }
     }
   }
 }

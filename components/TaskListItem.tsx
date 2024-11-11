@@ -1,12 +1,23 @@
-import { View, Text, StyleSheet} from 'react-native';
+import { Pressable, Text, StyleSheet } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { Link } from 'expo-router';
+import { Task } from '../models/Task';
+import { useRealm } from '@realm/react';
 
-const TaskListItem = ({ task }: any) => {
+const TaskListItem = ({ task }: { task: Task }) => {
+  const realm = useRealm();
+  const deleteTask = () => {
+    realm.write(() => {
+      realm.delete(task);
+    });
+  }
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{task.description}</Text>
-      <AntDesign name="close" size={16} color="gray" />
-    </View>
+    <Link href={`/${task._id}`} asChild>
+      <Pressable style={styles.container}>
+        <Text style={styles.text}>{task.description}</Text>
+        <AntDesign onPress={deleteTask} name="close" size={16} color="gray" />
+      </Pressable>
+    </Link>
   )
 }
 
