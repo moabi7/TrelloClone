@@ -5,12 +5,14 @@ import RealmCustomProvider from '../providers/RealmCustomProvider';
 
 const RootLayout = () => {
   return (
-    <ThemeProvider value={DarkTheme}>
-        <RealmCustomProvider>
-          <Stack/>
-        </RealmCustomProvider>
-        <StatusBar style="auto" />
-    </ThemeProvider>
+    <>
+      <ThemeProvider value={DarkTheme}>
+          <RealmCustomProvider>
+            <Stack/>
+          </RealmCustomProvider>
+      </ThemeProvider>
+      <StatusBar style="light" />
+    </>
   )
 }
 
